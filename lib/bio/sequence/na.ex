@@ -1,17 +1,14 @@
 defmodule Bio.Sequence.NA do
-
   def complement(bases) when is_bitstring(bases) do
-    String.downcase(bases)
-    |> to_char_list
-    |> complement
-    |> to_string
+    for << base <- String.downcase(bases) >> do
+      complement(base)
+    end |> to_string
   end
   def complement(bases) when length(bases) > 1 do
     Enum.map(bases, &(complement(&1)))
   end
   def complement(base) when is_integer(base) do
-    [c|_] = complement([base])
-    c
+    complement([base]) |> List.first
   end
   def complement(base) do
     #  atgcrymkdhvbswn
