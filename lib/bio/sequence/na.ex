@@ -1,6 +1,8 @@
 defmodule Bio.Sequence.NA do
+  require Bio.Util
+
   def complement(bases) when is_bitstring(bases) do
-    for << base <- String.downcase(bases) >> do
+    for << base <- bases >> do
       complement(base)
     end |> to_string
   end
@@ -10,18 +12,11 @@ defmodule Bio.Sequence.NA do
   def complement(base) when is_integer(base) do
     complement([base]) |> List.first
   end
+
+  @complements Bio.Util.complement_zip('atgcrymkdhvbswn','tacgyrkmhdbvswn')
+  def complements, do: @complements
   def complement(base) do
-    #  atgcrymkdhvbswn
-    #  tacgyrkmhdbvswn
-    %{ 'a' => 't', 't' => 'a',
-       'c' => 'g', 'g' => 'c',
-       'r' => 'y', 'y' => 'r',
-       'm' => 'k', 'k' => 'm',
-       'd' => 'h', 'h' => 'd',
-       'v' => 'b', 'b' => 'v',
-       's' => 's', 'w' => 'w', 'n' => 'n',
-       'u' => 'a'
-     }[base] || base
+    @complements[base] || base
   end
 
   def reverse_complement(bases) when is_bitstring(bases) do
@@ -32,6 +27,7 @@ defmodule Bio.Sequence.NA do
     complement(bases)
     |> Enum.reverse
   end
+
 
 end
 

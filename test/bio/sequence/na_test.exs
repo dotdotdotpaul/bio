@@ -17,7 +17,10 @@ defmodule Bio.Sequence.NA.Test do
     assert NA.complement("actg") == "tgac"
   end
   test "returns unmatched characters" do
-    assert NA.complement("acXgt") == "tgxca"
+    assert NA.complement("acXgt") == "tgXca"
+  end
+  test "maintains case of matched characters" do
+    assert NA.complement("ACtg") == "TGac"
   end
 end
 
