@@ -2,6 +2,14 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :bio, Bio.Repo,
+  adapter: Ecto.Adapters.MySQL,
+  username: "",
+  password: "",
+  database: "homo_sapiens_core_75_37",
+  hostname: "localhost",
+  pool_size: 10
+
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,

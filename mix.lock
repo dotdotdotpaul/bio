@@ -1,3 +1,5 @@
-%{"decimal": {:hex, :decimal, "1.1.1"},
+%{"connection": {:hex, :connection, "1.0.2"},
+  "decimal": {:hex, :decimal, "1.1.1"},
   "ecto": {:hex, :ecto, "1.1.4"},
+  "mariaex": {:hex, :mariaex, "0.6.4"},
   "poolboy": {:hex, :poolboy, "1.5.1"}}
