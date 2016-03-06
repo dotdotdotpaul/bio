@@ -10,6 +10,8 @@ defmodule Bio.Ensembl.CoordSystem do
     field :version
     field :rank, :integer
     field :attrib
+
+    has_many :seq_regions, Bio.Ensembl.SeqRegion, foreign_key: :coord_system_id
   end
 
 
