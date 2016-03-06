@@ -1,7 +1,7 @@
 defmodule Bio.Ensembl.Slice.Test do
   use ExUnit.Case
   doctest Bio.Ensembl.Slice
-  alias Bio.Ensembl.{Slice, SeqRegion, CoordSystem}
+  alias Bio.Ensembl.{Slice, SeqRegion}
   require Ecto.Query
 
   setup do
