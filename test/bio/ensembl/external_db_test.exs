@@ -6,7 +6,7 @@ defmodule Bio.Ensembl.ExternalDB.Test do
   import Ecto.Query
 
   test "it works" do
-    ExternalDB |> limit(1) |> Repo.one
+    assert ExternalDB |> limit(1) |> Repo.one
   end
 
 end

@@ -12,6 +12,7 @@ defmodule Bio.Ensembl.ExternalDB do
     field :secondary_db_name
     field :secondary_db_table
     field :description
+    has_many :xrefs, Bio.Ensembl.XRef
   end
 
 end

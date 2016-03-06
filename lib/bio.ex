@@ -11,4 +11,8 @@ defmodule Bio do
     Supervisor.start_link(children, opts)
   end
 
+  @chromosomes Enum.concat([Enum.to_list(1..22), ["X", "Y"]])
+               |> Enum.map(&(to_string(&1)))
+  def chromosomes, do: @chromosomes
+
 end
