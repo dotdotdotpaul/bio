@@ -16,12 +16,32 @@ defmodule Bio.Ensembl.Gene do
     field :status
     field :description
     field :is_current, :boolean
-    field :canonical_transcript_id, :integer
+    belongs_to :canonical_transcript, Bio.Ensembl.Transcript, references: :transcript_id
     field :stable_id
     field :version, :integer
     field :created_date, Ecto.DateTime
     field :modified_date, Ecto.DateTime
+
   end
+
+  # has_many polymorphic relationship...
+  def object_xrefs(gene = %Bio.Ensembl.Gene{}) do
+    Repo.all(
+      from ox in Bio.Ensembl.ObjectXRef, 
+        where: ox.ensembl_object_type == "Gene",
+        where: ox.ensembl_id == ^gene.gene_id
+    )
+  end
+
+  # has_many :through polymorphic relationship...
+  def xrefs(gene = %Bio.Ensembl.Gene{}) do
+    Enum.map object_xrefs(gene), fn ox ->
+      ox
+      |> assoc(:xref)
+      |> Repo.one
+    end
+  end
+      
 
   def from_name(name) do
     query = from xdb in Bio.Ensembl.ExternalDB,

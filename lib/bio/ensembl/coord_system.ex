@@ -5,7 +5,7 @@ defmodule Bio.Ensembl.CoordSystem do
 
   @primary_key {:coord_system_id, :id, autogenerate: false}
   schema "coord_system" do
-    field :species_id, :integer # Eventually a belongs_to
+    field :species_id, :integer  # Not actually a belongs_to!
     field :name
     field :version
     field :rank, :integer
