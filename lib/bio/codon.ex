@@ -24,10 +24,7 @@ defmodule Bio.Codon do
     }
 
   def from_bases(bases) when is_bitstring(bases) do
-    bases
-    |> to_char_list
-    |> from_bases
-    |> to_string
+    bases |> to_char_list |> from_bases |> to_string
   end
   def from_bases(bases) when length(bases) == 3 do
     @codon_table[:string.to_lower(bases)]

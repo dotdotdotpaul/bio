@@ -1,6 +1,9 @@
 defmodule Bio.Sequence.NA do
   require Bio.Util
 
+  @complements Bio.Util.complement_zip('atgcrymkdhvbswn','tacgyrkmhdbvswn')
+  def complements, do: @complements
+
   def complement(bases) when is_bitstring(bases) do
     for << base <- bases >> do
       complement(base)
@@ -12,9 +15,6 @@ defmodule Bio.Sequence.NA do
   def complement(base) when is_integer(base) do
     complement([base]) |> List.first
   end
-
-  @complements Bio.Util.complement_zip('atgcrymkdhvbswn','tacgyrkmhdbvswn')
-  def complements, do: @complements
   def complement(base) do
     @complements[base] || base
   end
