@@ -19,3 +19,15 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:bio]]
         end
 
+## Testing
+
+The Gemfile(.lock) files and Guardfile at the root are there simply for
+testing.  If you have the ruby gem Bundler installed, you can run:
+
+  bundle install
+  bundle exec guard
+
+This will monitor the lib and test directories and rerun the appropriate tests
+when the source files change.
+
+
