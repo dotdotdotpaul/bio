@@ -7,7 +7,6 @@ defmodule Bio.Ensembl.Gene.Test do
     result = Gene.from_name("EGFR")
     assert result
     assert length(result) == 1
-    IO.inspect(result)
   end
 
 end
