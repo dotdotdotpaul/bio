@@ -22,6 +22,7 @@ defmodule Bio.Ensembl.Gene do
     field :created_date, Ecto.DateTime
     field :modified_date, Ecto.DateTime
 
+    has_many :transcripts, Bio.Ensembl.Transcript, foreign_key: :gene_id
   end
 
   # has_many polymorphic relationship...

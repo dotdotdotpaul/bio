@@ -20,7 +20,7 @@ defmodule Bio.Ensembl.Transcript do
     field :created_date, Ecto.DateTime
     field :modified_date, Ecto.DateTime
 
-    has_many :translations, Bio.Ensembl.Translation
+    has_many :translations, Bio.Ensembl.Translation, foreign_key: :transcript_id
   end
 
 end
